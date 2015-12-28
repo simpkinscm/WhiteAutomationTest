@@ -6,6 +6,8 @@ using TestStack.White.UIItems;
 using TestStack.White.UIItems.Finders;
 using TestStack.White.UIItems.WindowItems;
 using TestStack.White.UIItems.ListBoxItems;
+using System.IO;
+using System;
 
 namespace WhiteFrameworkSandbox
 {
@@ -16,7 +18,8 @@ namespace WhiteFrameworkSandbox
         [SetUp]
         public void LaunchandLogin(){
             //Launch App
-            const string exePath = @".Flight Application\Flights Application\FlightsGUI.exe";
+            string applicationDirectory = TestContext.CurrentContext.TestDirectory;
+            string exePath = Path.GetFullPath(applicationDirectory + "..\\..\\..\\..\\Flight Application\\Flights Application\\FlightsGUI.exe");
             var exeProcess = new ProcessStartInfo(exePath);
             Application application = Application.AttachOrLaunch(exeProcess);
 
