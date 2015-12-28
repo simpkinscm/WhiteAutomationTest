@@ -1,0 +1,27 @@
+HKCR
+{
+	CPPCustomComparer.BitmapComparer.1 = s 'Custom QTP Bitmap Comparer'
+	{
+		CLSID = s '{1DED876F-174D-46C5-9C31-B68587DA1A84}'
+	}
+	CPPCustomComparer.BitmapComparer = s 'Custom QTP Bitmap Comparer'
+	{
+		CLSID = s '{1DED876F-174D-46C5-9C31-B68587DA1A84}'
+		CurVer = s 'CPPCustomComparer.BitmapComparer.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1DED876F-174D-46C5-9C31-B68587DA1A84} = s 'Custom QTP Bitmap Comparer'
+		{
+			ProgID = s 'CPPCustomComparer.BitmapComparer.1'
+			VersionIndependentProgID = s 'CPPCustomComparer.BitmapComparer'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{34E6D748-B999-4D2A-97AE-A2044D14DD99}'
+		}
+	}
+}

@@ -1,0 +1,10 @@
+The Custom QTP Bitmap Comparer is a sample custom comparer, supplied with QuickTest, that you can use to learn more about creating custom bitmap comparers.
+
+This custom comparer accepts a parameter named MaxSurfAreaDiff, in which the user can specify an acceptable difference between the total number of pixels in the expected and actual bitmaps.
+
+This sample bitmap comparer does not actually compare the bitmaps. It only compares the total number of different pixels in the expected and actual bitmaps. If the total number of different pixels is less than MaxSurfAreaDiff, then the checkpoint passes, otherwise - it fails. 
+
+If the chekpoint fails, this sample custom comparer provides a message that appears in the test results, specifying the number of different pixels.
+In addition it provides the actual, expected, and difference bitmaps to be displayed in the test results. 
+Note: The actual bitmap is used for the difference bitmap as well.
+

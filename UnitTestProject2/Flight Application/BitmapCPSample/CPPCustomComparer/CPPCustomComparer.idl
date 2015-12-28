@@ -1,0 +1,36 @@
+// CPPCustomComparer.idl : IDL source for CPPCustomComparer
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (CPPCustomComparer.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(31F5C7BD-5DCF-425A-86BA-20B77881E11F),
+	dual,
+	nonextensible,
+	helpstring("IBitmapComparer Interface"),
+	pointer_default(unique)
+]
+interface IBitmapComparer : IDispatch{
+};
+[
+	uuid(34E6D748-B999-4D2A-97AE-A2044D14DD99),
+	version(1.0),
+	helpstring("CPPCustomComparer 1.0 Type Library")
+]
+library CPPCustomComparerLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(1DED876F-174D-46C5-9C31-B68587DA1A84),
+		helpstring("Custom QTP Bitmap Comparer")
+	]
+	coclass BitmapComparer
+	{
+		[default] interface IBitmapComparer;
+	};
+};

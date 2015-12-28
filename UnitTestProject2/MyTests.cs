@@ -16,7 +16,7 @@ namespace WhiteFrameworkSandbox
         [SetUp]
         public void LaunchandLogin(){
             //Launch App
-            const string exePath = @"C:\Users\michael.simpkins\workspace\Mercury Tours App\samples\Flights Application\FlightsGUI.exe";
+            const string exePath = @".Flight Application\Flights Application\FlightsGUI.exe";
             var exeProcess = new ProcessStartInfo(exePath);
             Application application = Application.AttachOrLaunch(exeProcess);
 

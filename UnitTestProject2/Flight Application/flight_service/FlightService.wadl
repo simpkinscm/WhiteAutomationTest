@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="Flight Service"/>
+  <resources base="http://localhost:%portNum%/HPFlights_REST">
+    <resource path="Flights">
+      <method name="GET" id="GetFlights">
+        <doc xml:lang="en" title="GetFlights">Returns all flights matching the specified parameters. To return all flights, do not specify any parameters</doc>
+        <request>
+          <param name="DepartureCity" type="xsd:string" style="query" required="true" default="Denver"/>
+          <param name="ArrivalCity" type="xsd:string" style="query" required="true" default="London"/>
+        </request>
+        <response status="200">
+          <representation mediaType="text/xml"/>
+        </response>
+      </method>
+      <resource path="{FlightID}">
+        <param name="FlightID" type="xsd:string" style="template" required="true" default="20252"/>
+        <method name="GET" id="GetFlightById">
+          <doc xml:lang="en" title="GetFlights">Returns the flight details for the specified flight number.</doc>
+          <response status="200">
+            <representation mediaType="text/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="FlightOrders">
+      <method name="GET" id="GetFlightOrders">
+        <doc xml:lang="en" title="GetFlights">Returns all flight orders that match the specified parameters. To return all flight orders, do not specify any parameters. If there is an error or no results, it returns an exception.</doc>
+        <request>
+          <param name="FlightDate" type="xsd:dateTime" style="query" required="true" default="2009-02-14"/>
+          <param name="CustomerName" type="xsd:string" style="query" required="true" default="Mary Parker"/>
+          <param name="OrderNumber" type="xsd:int" style="query" required="true" default="3"/>
+        </request>
+        <response status="200">
+          <representation mediaType="text/xml"/>
+        </response>
+      </method>
+      <method name="POST" id="ReserveOrder">
+        <doc xml:lang="en" title="GetFlights">Receives XML with the input parameters: Class, CustomerName, DepartureDate, FlightNumber, and NumberOfTickets. It creates a new flight order and returns OrderNumber and TotalPrice.</doc>
+        <request>
+          <representation id="FlightOrder" mediaType="text/xml"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <resource path="{FlightOrder}">
+        <param name="FlightOrder" type="xsd:string" style="template" required="true" default="1"/>
+        <method name="GET" id="GetFlightOrder">
+          <doc xml:lang="en" title="GetFlights">Returns the details of a specific flight order.</doc>
+          <response status="200">
+            <representation mediaType="text/xml"/>
+          </response>
+        </method>
+        <method name="PUT" id="UpdateFlightOrder">
+          <doc xml:lang="en" title="GetFlights">Receives an XML with parameters: FlightNumber, CustomerName, Class, and NumberOfTickets Updates a flight's details and returns True or False.</doc>
+          <request>
+            <representation id="FlightOrder" mediaType="text/xml"/>
+          </request>
+          <response status="200">
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+        <method name="DELETE" id="DeleteFlightOrder">
+          <doc xml:lang="en" title="GetFlights">Deletes the specified flight order and returns True or False.</doc>
+          <response status="200">
+            <representation mediaType="text/xml"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="All" id="DeleteAllOrders">
+        <method name="DELETE" id="DeleteAllFlightOrders">
+          <doc xml:lang="en" title="GetFlights">Deletes all flight orders and returns True or False.</doc>
+          <response status="200">
+            <representation mediaType="text/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+  </resources>
+</application>

@@ -1,0 +1,33 @@
+                                             Agents Order Report
+                                                     mig1
+__________________________________________________________________________________________________________
+Customer            Tickets      Price       Total  Order   Date   Airline    Departs    From
+                                                    No.            Flight No. Arrives    To
+__________________________________________________________________________________________________________
+Bob Johnson              2     $354.94     $709.88    8   06/23/96   AA      12:48 PM    Denver
+                                                                     6218    03:48 PM    Portland
+Fred Smith               3     $647.60    $1942.80    2   06/17/96   TWA     10:24 AM    Los Angeles
+                                                                     4295    11:09 AM    San Francisco
+Jack Barnes              1     $312.00     $312.00    9   06/24/96   AA      10:24 AM    Denver
+                                                                     6232    01:24 PM    Los Angeles
+Jane Doe                 3     $301.50     $904.50    7   06/22/96   AA      08:00 AM    San Francisco
+                                                                     3291    08:45 AM    Los Angeles
+Joe Shmoe                1     $337.40     $337.40    6   06/21/96   TWA     08:00 AM    Los Angeles
+                                                                     4210    10:00 AM    Portland
+John                     4     $124.40     $497.60   14   05/20/99   DA      02:57 PM    Denver
+                                                                     1141    03:55 PM    Los Angeles
+John                     2     $124.40     $248.80   13   05/20/99   DA      02:57 PM    Denver
+                                                                     1141    03:55 PM    Los Angeles
+John Doe                 1     $312.00     $312.00    1   06/16/96   AA      10:24 AM    Denver
+                                                                     6232    01:24 PM    Los Angeles
+Jon Baker                4     $161.70     $646.80    4   06/19/96   TWA     12:48 PM    Los Angeles
+                                                                     4219    01:33 PM    San Francisco
+Kim Smith                2     $529.41    $1058.82    5   06/20/96   AA      08:00 AM    Denver
+                                                                     6195    11:30 AM    San Francisco
+Mary Parker              5     $160.60     $803.00    3   06/18/96   TWA     08:00 AM    Los Angeles
+                                                                     4194    10:00 AM    Portland
+Steve                    3     $382.80    $1148.40   11   11/22/99   UA      07:45 AM    Denver
+                                                                     5673    08:42 AM    Los Angeles
+Total Customer Count: 12
+  Total Ticket Count: 31
+         Total Sales: $4936.48
