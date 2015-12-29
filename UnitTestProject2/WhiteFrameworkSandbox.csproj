@@ -116,8 +116,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BookFlightPage.cs" />
+    <Compile Include="GlobalVar.cs" />
+    <Compile Include="LoginPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyTests.cs" />
+    <Compile Include="SearchPage.cs" />
+    <Compile Include="SelectFlightPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

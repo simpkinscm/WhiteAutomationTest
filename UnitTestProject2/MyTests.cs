@@ -13,56 +13,30 @@ namespace WhiteFrameworkSandbox
 {
     [TestFixture]
     public class MyTests{
-        Window window;
-
         [SetUp]
-        public void LaunchandLogin(){
-            //Launch App
-            string applicationDirectory = TestContext.CurrentContext.TestDirectory;
-            string exePath = Path.GetFullPath(applicationDirectory + "..\\..\\..\\..\\Flight Application\\Flights Application\\FlightsGUI.exe");
-            var exeProcess = new ProcessStartInfo(exePath);
-            Application application = Application.AttachOrLaunch(exeProcess);
-
-            //Assign Login Window
-            window = application.GetWindow(SearchCriteria.ByText("HP MyFlight Sample Application"), InitializeOption.NoCache);
-
-            //Login
-            window.Get<TextBox>("agentName").SetValue("John");
-            window.Get<TextBox>("password").SetValue("HP");
-            window.Get<Button>("okButton").Click();
-
-            //Assign App Window
-            window = application.GetWindow(SearchCriteria.ByText("HP MyFlight Sample Application"), InitializeOption.NoCache);
+        public void Setup(){
+            GlobalVar.timeouts.FindWindowTimeout = 5000;
         }
 
         [TearDown]
         public void CloseApp(){
-            //Close App
-            window.Close();
+            GlobalVar.application.Close();
         }
 
         [Test]
         public void SearchandBookFlight() {
+            //Login
+            LoginPage loginPage = new LoginPage();
+            Assert.True(loginPage.Login("John", "HP"));
             //search
-            window.Get<ComboBox>("fromCity").Items.Select("Denver");
-            window.Get<ComboBox>("toCity").Items.Select("Portland");
-            window.Get<DateTimePicker>("datePicker").SetDate(new System.DateTime(2016, 1, 26), DateFormat.MonthDayYear);
-            window.Get<ComboBox>("Class").Items.Select("Business");
-            window.Get<Button>(SearchCriteria.ByText("FIND FLIGHTS")).Click();
+            SearchPage searchPage = new SearchPage();
+            Assert.True(searchPage.SearchFlight("Portland", "Sydney", 14, "Business", 2));
             //results
-            ListView results = window.Get<ListView>("flightsDataGrid");
-            results.Rows[0].Cells[0].Click();
-            window.Get<Button>("selectFlightBtn").Click();
+            SelectFlightPage selectFlightPage = new SelectFlightPage();
+            selectFlightPage.SelectFlight(0);
             //book
-            window.Get<TextBox>("passengerName").SetValue("Mike Hunt");
-            window.Get<Button>("orderBtn").Click();
-            //Verify
-            ProgressBar progBar = window.Get<ProgressBar>("progBar");
-            do
-            {
-                System.Threading.Thread.Sleep(500);
-            } while (0 < progBar.Value && progBar.Value < 100);
-            Assert.True(window.Get<Label>("orderCompleted").Visible);
+            BookFlightPage bookFlightPage = new BookFlightPage();
+            Assert.True(bookFlightPage.bookFlight("Mike Hunt"));
         }
     }
 }
